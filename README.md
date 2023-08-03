@@ -1,6 +1,6 @@
 # SQLTranslator
 ## vercel URL
-https://sql-translator-1xt8-8oe1otdnc-whitneyliu.vercel.app/
+https://sql-translator-1xt8.vercel.app/
 
 
 ## Client

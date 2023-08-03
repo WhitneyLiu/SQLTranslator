@@ -9,7 +9,6 @@ function App() {
       <Button size="lg" endIcon={<IoMdLogIn />}>
         Login
       </Button>
-      <div>test</div>
     </CustomProvider>
   );
 }
