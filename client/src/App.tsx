@@ -1,8 +1,14 @@
+import { Button, CustomProvider, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
+import { IoMdLogIn } from 'react-icons/io';
+import 'rsuite/dist/rsuite.min.css';
 import React from 'react'
+
 
 function App() {
   return (
-    <div>App</div>
+    <Button size="lg" endIcon={<IoMdLogIn />}>
+      Login
+    </Button>
   )
 }
 
