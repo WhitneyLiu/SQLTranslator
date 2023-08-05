@@ -1,8 +1,16 @@
-import { Button, Container, CustomProvider, Header, Stack } from "rsuite";
+import {
+  Button,
+  CustomProvider,
+  Divider,
+  IconButton,
+  Stack,
+  Panel,
+  PanelGroup,
+} from "rsuite";
+import ReloadIcon from "@rsuite/icons/Reload";
 import { IoMdLogIn } from "react-icons/io";
 import "rsuite/dist/rsuite.min.css";
 import "./styles/App.scss";
-import React from "react";
 
 function App() {
   return (
@@ -28,6 +36,24 @@ function App() {
           Generate, explain, and optimize SQL queries using AI! Improve your
           skills and save time:
         </h4>
+        <br/>
+        <PanelGroup className="translator-example" bordered>
+          <Panel
+            shaded
+            bordered
+            bodyFill
+            style={{ display: "inline-block", width: 300 }}
+          ></Panel>
+          <Divider>
+          <IconButton circle icon={<ReloadIcon />} />
+          </Divider>
+          <Panel
+            shaded
+            bordered
+            bodyFill
+            style={{ display: "inline-block", width: 300 }}
+          ></Panel>
+        </PanelGroup>
       </div>
     </CustomProvider>
   );

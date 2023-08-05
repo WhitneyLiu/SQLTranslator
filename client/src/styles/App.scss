@@ -1,9 +1,19 @@
-@import'./customStyles/customStyles.scss';
+@import "./customStyles/customStyles.scss";
 
 .app-title {
   text-align: center;
   span {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+    background-image: linear-gradient(
+      to left,
+      violet,
+      indigo,
+      blue,
+      green,
+      yellow,
+      orange,
+      red
+    );
+    -webkit-background-clip: text;
     color: transparent;
   }
 }
@@ -11,4 +21,12 @@
 .app-detail {
   color: $gray-7;
   text-align: center;
+  .rs-divider-inner-text {
+    padding: 0;
+  }
+}
+
+.translator-example {
+  display: inline-block;
+  width: 400
 }
