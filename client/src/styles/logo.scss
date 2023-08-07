@@ -1,0 +1,25 @@
+.logo {
+    @apply flex lg:flex-1;
+
+    a {
+      @apply -m-1.5 p-1.5;
+    }
+
+    span {
+      @apply font-mono text-3xl font-bold;
+
+      background-image: linear-gradient(
+        to left,
+        violet,
+        indigo,
+        blue,
+        green,
+        yellow,
+        orange,
+        red
+      );
+      display: inline-flex;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }

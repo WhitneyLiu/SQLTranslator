@@ -1,4 +1,5 @@
 import Example from "./example";
+import Logo from "./logo";
 import "../styles/landingPage.scss";
 
 export default function LandingPage() {
@@ -6,13 +7,9 @@ export default function LandingPage() {
     <div className="landing-page">
       <header className="header">
         <nav className="navbar" aria-label="Global">
-          <div className="logo">
-            <a href="/">
-              <span>SQL Translator</span>
-            </a>
-          </div>
+          <Logo/>
           <div className="login">
-            <a href="#">
+            <a href="/login">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -31,7 +28,7 @@ export default function LandingPage() {
             <br />
             <Example />
             <div className="button">
-              <a href="#">Try SQL translator now ! ! !</a>
+              <a href="/login">Try SQL translator now ! ! !</a>
             </div>
           </div>
         </div>
