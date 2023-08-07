@@ -1,5 +1,4 @@
 import Example from "./example";
-import { useState } from "react";
 import "../styles/landingPage.scss";
 
 export default function LandingPage() {
@@ -29,8 +28,8 @@ export default function LandingPage() {
               Utilize AI to craft, clarify, and enhance your SQL queries
               swiftly. Elevate your proficiency and reclaim valuable time:
             </p>
-            <br/>
-            <Example/>
+            <br />
+            <Example />
             <div className="button">
               <a href="#">Try SQL translator now ! ! !</a>
             </div>

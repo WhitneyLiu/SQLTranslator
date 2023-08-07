@@ -1,3 +1,35 @@
 .example {
-    @apply mx-32 overflow-hidden rounded-lg bg-white/50 shadow;
+  @apply border border-indigo-600 mx-16 overflow-hidden rounded-lg bg-white/50 shadow;
+
+  .text {
+    @apply h-24 px-4 py-5 sm:px-6 text-left whitespace-pre-line;
+  }
+
+  .separator-section {
+    @apply relative;
+
+    .separator {
+      @apply absolute inset-0 flex items-center;
+
+      div {
+        @apply w-full border-t border-indigo-600;
+      }
+    }
+
+    .switch-button {
+      @apply relative flex justify-center;
+
+      button {
+        @apply rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+
+        svg {
+          @apply h-6 w-6 animate-spin;
+        }
+      }
+    }
+  }
+
+  .translation {
+    @apply h-44 px-4 py-5 sm:p-6 text-left whitespace-pre-line;
+  }
 }
