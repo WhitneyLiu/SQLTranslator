@@ -1,4 +1,4 @@
-.login-page {
+.signup-page {
   @apply flex min-h-full flex-1 flex-col justify-center p-6 lg:px-8;
 
   section {
@@ -39,14 +39,6 @@
             label {
               @apply block text-sm font-medium leading-6 text-white;
             }
-
-            .password-recover {
-              @apply text-sm;
-
-              a {
-                @apply font-semibold text-indigo-400 hover:text-indigo-300;
-              }
-            }
           }
 
           .password-input {
@@ -58,44 +50,13 @@
           }
         }
 
-        .signin-button {
+        .create-button {
           @apply mt-10 flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500;
         }
 
-        .footer {
-          @apply mt-10;
 
-          .divider-container {
-            @apply relative;
-
-            .divider {
-              @apply absolute inset-0 flex items-center;
-
-              div {
-                @apply w-full border-t border-gray-200;
-              }
-            }
-
-            .text {
-              @apply relative flex justify-center text-sm font-medium leading-6;
-
-              span {
-                @apply bg-gray-800 px-6 text-white;
-              }
-            }
-          }
-
-          .google-button {
-            @apply leading-6 mt-8 py-1.5 px-3 max-w-md flex justify-center items-center bg-red-600 hover:bg-red-400 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-sm font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md;
-
-            svg {
-              @apply mr-2;
-            }
-          }
-        }
-
-        .signup-container {
-          @apply mt-10 text-center text-sm text-gray-400;
+        .login-container {
+          @apply mt-5 text-center text-sm text-gray-400;
 
           a {
             @apply font-semibold leading-6 text-indigo-400 hover:text-indigo-300;
