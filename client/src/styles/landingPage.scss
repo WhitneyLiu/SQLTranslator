@@ -11,7 +11,7 @@
         @apply lg:flex lg:flex-1 lg:justify-end;
 
         a {
-          @apply font-semibold leading-6 text-white text-2xl;
+          @apply flex font-semibold leading-6 text-white text-2xl items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800;
         }
       }
     }
@@ -45,7 +45,11 @@
         @apply mt-10 flex items-center justify-center gap-x-6;
 
         a {
-          @apply rounded-md bg-indigo-500 px-3.5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400;
+          @apply rounded-md bg-indigo-500 hover:bg-indigo-400 font-semibold text-white shadow-sm flex items-center gap-x-4 px-6 py-3 font-semibold leading-6;
+
+          svg {
+            @apply h-5 w-5;
+          }
         }
       }
     }

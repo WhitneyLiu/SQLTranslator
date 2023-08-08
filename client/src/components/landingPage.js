@@ -1,5 +1,6 @@
 import Example from "./example";
 import Logo from "./logo";
+import { SparklesIcon } from "@heroicons/react/20/solid";
 import "../styles/landingPage.scss";
 
 export default function LandingPage() {
@@ -7,7 +8,7 @@ export default function LandingPage() {
     <div className="landing-page">
       <header className="header">
         <nav className="navbar" aria-label="Global">
-          <Logo/>
+          <Logo />
           <div className="login">
             <a href="/login">
               Log in <span aria-hidden="true">&rarr;</span>
@@ -28,7 +29,11 @@ export default function LandingPage() {
             <br />
             <Example />
             <div className="button">
-              <a href="/login">Try SQL translator now ! ! !</a>
+              <a href="/login">
+                <SparklesIcon aria-hidden="true" />
+                <span aria-hidden="true">Try SQL
+                translator now ! ! !</span> 
+              </a>
             </div>
           </div>
         </div>
