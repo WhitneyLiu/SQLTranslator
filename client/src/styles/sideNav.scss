@@ -1,0 +1,47 @@
+.sidenav-container {
+  @apply sm:fixed sm:inset-y-0 sm:z-50 sm:flex sm:w-72 sm:flex-col;
+
+  .sidenav-content-container {
+    @apply flex grow flex-col gap-y-5 overflow-y-auto bg-black/10 px-6 ring-1 ring-white/5;
+
+    .logo-section {
+      @apply flex h-16 shrink-0 items-center;
+    }
+
+    nav {
+      @apply flex flex-1 flex-col;
+
+      .nav-list-warper {
+        @apply flex flex-1 flex-col gap-y-7;
+
+        .upper-nav-items {
+          @apply -mx-2 space-y-1;
+
+          a {
+            @apply flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold;
+          }
+
+          .current {
+            @apply bg-gray-800 text-white;
+          }
+
+          .not-current {
+            @apply text-gray-400 hover:text-white hover:bg-gray-800 flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold;
+          }
+        }
+
+        .footer {
+          @apply -mx-6 mt-auto;
+
+          a {
+            @apply flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800;
+
+            svg {
+              @apply h-5 w-5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
