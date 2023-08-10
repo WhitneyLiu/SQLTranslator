@@ -29,7 +29,7 @@ export default function LandingPage() {
             <br />
             <Example />
             <div className="button">
-              <a href="/login">
+              <a>
                 <SparklesIcon aria-hidden="true" />
                 <span aria-hidden="true">Try SQL
                 translator now ! ! !</span> 
