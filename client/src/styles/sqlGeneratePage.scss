@@ -1,0 +1,39 @@
+main {
+  @apply py-10 sm:pl-72;
+
+  .content-container {
+    @apply mx-auto px-8 max-w-2xl;
+
+    .content-container-layout {
+      @apply overflow-hidden rounded-md bg-gray-800 shadow;
+
+      ul {
+        @apply divide-y divide-gray-700;
+
+        li {
+          @apply px-6 py-4;
+
+          label {
+            @apply flex text-sm font-medium leading-6 text-white;
+          }
+
+          .button-container {
+            @apply mt-4 flex justify-between;
+
+            .indigo-button {
+              @apply inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+
+              svg {
+                @apply -ml-0.5 h-5 w-5;
+              }
+            }
+          }
+        }
+
+        .li-text {
+          @apply text-white text-2xl;
+        }
+      }
+    }
+  }
+}

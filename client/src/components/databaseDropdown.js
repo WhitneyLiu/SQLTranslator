@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Combobox } from "@headlessui/react";
+import classNames from "../helper/classNames";
 
 const databaseTypes = [
   { id: 1, type: "PostgreSQL" },
@@ -14,10 +15,6 @@ const databaseTypes = [
   { id: 9, type: "Hive" },
   { id: 10, type: "FlinkSQL" },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function DatabaseDropdown() {
   const [query, setQuery] = useState("");
