@@ -15,11 +15,11 @@ const navigation = [
     href: "/sql-generate",
     icon: ArrowPathIcon,
   },
-  {
-    name: "SQL - Explain",
-    href: "/sql-explain",
-    icon: LanguageIcon,
-  },
+  // {
+  //   name: "SQL - Explain",
+  //   href: "/sql-explain",
+  //   icon: LanguageIcon,
+  // },
   {
     name: "Account",
     href: "/account",
