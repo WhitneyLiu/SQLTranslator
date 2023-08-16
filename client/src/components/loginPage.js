@@ -62,7 +62,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <button type="button" class="google-button">
+              <button type="button" className="google-button">
                 <svg
                   width="20"
                   height="20"

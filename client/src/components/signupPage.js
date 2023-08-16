@@ -1,10 +1,63 @@
 import Logo from "./logo";
 import "../styles/signupPage.scss";
+import { useState } from "react";
+import UserPool from "../helper/UserPool";
+import PasswordCheck from "./PasswordCheck";
+import Warning from "./Warning";
+import Notification from "./Notification";
+import { isValid } from "../helper/password";
+import { getSubstringAfterColon } from "../helper/string";
 
 export default function SignupPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [notification, setNotification] = useState({
+    show: false,
+    isError: false,
+    title: "",
+    message: "",
+  });
+
+  const passwordMatch = password === passwordConfirm;
+
+  const createAccount = (event) => {
+    event.preventDefault();
+
+    UserPool.signUp(email, password, [], null, (err, data) => {
+      if (err) {
+        // set up notification message here
+        console.log(err);
+        setNotification({
+          show: true,
+          isError: true,
+          title: "Error!",
+          message: getSubstringAfterColon(err.toString()),
+        });
+      } else {
+        // set up notification message here
+        console.log(data);
+        setNotification({
+          show: true,
+          isError: false,
+          title: "Registration Success",
+          message: `Thank you. We have sent you email to ${email}. Please check the link in that message to activate your account.`,
+        });
+      }
+    });
+  };
+
   return (
     <div className="signup-page">
       <Logo />
+      {notification.show ? (
+        <Notification
+          notification={notification}
+          setNotification={setNotification}
+        />
+      ) : (
+        <></>
+      )}
       <section>
         <div className="form-style">
           <div className="login-title">
@@ -22,6 +75,8 @@ export default function SignupPage() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                     required
                   />
                 </div>
@@ -37,9 +92,16 @@ export default function SignupPage() {
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                     required
                   />
                 </div>
+                {password === "" ? (
+                  <></>
+                ) : (
+                  <PasswordCheck password={password} />
+                )}
               </div>
 
               <div>
@@ -52,13 +114,25 @@ export default function SignupPage() {
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    value={passwordConfirm}
+                    onChange={(event) => setPasswordConfirm(event.target.value)}
                     required
                   />
                 </div>
+                {passwordMatch ? (
+                  <></>
+                ) : (
+                  <Warning message="Passwords don't match" />
+                )}
               </div>
 
               <div>
-                <button type="submit" className="create-button">
+                <button
+                  onClick={createAccount}
+                  type="submit"
+                  className="create-button"
+                  disabled={!(passwordMatch && isValid(password))}
+                >
                   Create an account
                 </button>
               </div>
