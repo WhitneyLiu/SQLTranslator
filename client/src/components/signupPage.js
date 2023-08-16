@@ -6,7 +6,6 @@ import PasswordCheck from "./PasswordCheck";
 import Warning from "./Warning";
 import Notification from "./Notification";
 import { isValid } from "../helper/password";
-import { getSubstringAfterColon } from "../helper/string";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -26,16 +25,13 @@ export default function SignupPage() {
 
     UserPool.signUp(email, password, [], null, (err, data) => {
       if (err) {
-        // set up notification message here
-        console.log(err);
         setNotification({
           show: true,
           isError: true,
           title: "Error!",
-          message: getSubstringAfterColon(err.toString()),
+          message: err.message,
         });
       } else {
-        // set up notification message here
         console.log(data);
         setNotification({
           show: true,

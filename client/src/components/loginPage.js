@@ -1,17 +1,69 @@
 import Logo from "./logo";
+import Notification from "./Notification";
+import UserPool from "../helper/UserPool";
+import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import { useState } from "react";
 import "../styles/loginPage.scss";
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [notification, setNotification] = useState({
+    show: false,
+    isError: false,
+    title: "",
+    message: "",
+  });
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    const user = new CognitoUser({
+      Username: email,
+      Pool: UserPool,
+    });
+
+    const authDetails = new AuthenticationDetails({
+      Username: email,
+      Password: password,
+    });
+
+    user.authenticateUser(authDetails, {
+      onSuccess: (data) => {
+        console.log("onSuccess: ", data);
+      },
+      onFailure: (err) => {
+        setNotification({
+          show: true,
+          isError: true,
+          title: "Error!",
+          message: err.message,
+        });
+      },
+      newPasswordRequired: (data) => {
+        console.log("newPasswordReqyired: ", data);
+      },
+    });
+  };
+
   return (
     <div className="login-page">
       <Logo />
+      {notification.show ? (
+        <Notification
+          notification={notification}
+          setNotification={setNotification}
+        />
+      ) : (
+        <></>
+      )}
       <section>
         <div className="form-style">
           <div className="login-title">
             <h2>Sign in to your account</h2>
           </div>
           <div className="form-container">
-            <form action="#" method="POST">
+            <form onSubmit={handleLogin}>
               <div>
                 <label htmlFor="email" className="email-label">
                   Email address
@@ -22,6 +74,8 @@ export default function LoginPage() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                     required
                   />
                 </div>
@@ -40,13 +94,15 @@ export default function LoginPage() {
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <button type="submit" className="signin-button">
+                <button tyoe="submit" className="signin-button">
                   Sign in
                 </button>
               </div>
