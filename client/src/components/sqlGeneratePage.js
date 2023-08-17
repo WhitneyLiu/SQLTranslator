@@ -5,7 +5,6 @@ import {
   DocumentDuplicateIcon,
 } from "@heroicons/react/20/solid";
 import DatabaseDropdown from "./databaseDropdown";
-import SideNav from "./sideNav";
 import SwitchButton from "./switchButton";
 import Textarea from "./textarea";
 
@@ -13,7 +12,6 @@ export default function SqlGeneratePage() {
   const [enabled, setEnabled] = useState(false);
   return (
     <>
-      <SideNav currentHerf="/home/sql-generate" />
       <main>
         <div className="content-container">
           <div className="content-container-layout">

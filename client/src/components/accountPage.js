@@ -5,7 +5,6 @@ export default function AccountPage() {
   const email = "123@gmail.com";
   return (
     <>
-      <SideNav currentHerf="/account" />
       <main>
         <div className="content-container">
           <div className="content-container-layout">

@@ -3,7 +3,7 @@ import { AccountContext } from "../helper/Account";
 import { ArrowPathIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "./logo";
 
 const navigation = [
@@ -14,12 +14,13 @@ const navigation = [
   },
   {
     name: "Account",
-    href: "/account",
+    href: "/home/account",
     icon: UserCircleIcon,
   },
 ];
 
-export default function SideNav(props) {
+export default function SideNav() {
+  const location = useLocation();
   const navigate = useNavigate();
   const { logout } = useContext(AccountContext);
 
@@ -44,7 +45,7 @@ export default function SideNav(props) {
                       <a
                         href={item.href}
                         className={
-                          props.currentHerf === item.href
+                          location.pathname === item.href
                             ? "current"
                             : "not-current"
                         }

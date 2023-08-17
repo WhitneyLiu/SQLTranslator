@@ -1,5 +1,5 @@
 import { useEffect, useState, Fragment } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
@@ -7,6 +7,7 @@ import { Transition } from "@headlessui/react";
 export default function ExtendSessionNotification() {
   const [isSessionExpiring, setIsSessionExpiring] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     checkSessionValidity();
@@ -17,7 +18,9 @@ export default function ExtendSessionNotification() {
   async function checkSessionValidity() {
     try {
       await Auth.currentSession();
-      navigate("/home/sql-generate");
+      if (location.pathname === "/home" || location.pathname === "/Home") {
+        navigate("/home/sql-generate");
+      }
     } catch (error) {
       navigate("/");
     }
@@ -38,9 +41,10 @@ export default function ExtendSessionNotification() {
       const currentTime = Math.floor(Date.now() / 1000); // Convert to seconds
       const expiresAt = session.getIdToken().getExpiration();
       const timeUntilExpiration = expiresAt - currentTime;
+      console.log(timeUntilExpiration);
 
       // Show notification when session is about to expire (30s)
-      if (timeUntilExpiration <= 30000) {
+      if (timeUntilExpiration <= 30) {
         setIsSessionExpiring(true);
       } else {
         setIsSessionExpiring(false);
