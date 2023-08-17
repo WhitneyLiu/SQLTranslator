@@ -1,19 +1,19 @@
-import SideNav from "./sideNav";
+import "../styles/sqlGeneratePage.scss";
 import { useState } from "react";
 import {
   ArrowPathIcon,
   DocumentDuplicateIcon,
 } from "@heroicons/react/20/solid";
 import DatabaseDropdown from "./databaseDropdown";
-import Textarea from "./textarea";
+import SideNav from "./sideNav";
 import SwitchButton from "./switchButton";
-import "../styles/sqlGeneratePage.scss";
+import Textarea from "./textarea";
 
 export default function SqlGeneratePage() {
   const [enabled, setEnabled] = useState(false);
   return (
     <>
-      <SideNav currentHerf="/sql-generate" />
+      <SideNav currentHerf="/home/sql-generate" />
       <main>
         <div className="content-container">
           <div className="content-container-layout">

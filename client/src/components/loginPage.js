@@ -1,9 +1,9 @@
+import "../styles/loginPage.scss";
+import { AccountContext } from "../helper/Account";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "./logo";
 import Notification from "./Notification";
-import UserPool from "../helper/UserPool";
-import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-import { useState } from "react";
-import "../styles/loginPage.scss";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,35 +15,20 @@ export default function LoginPage() {
     message: "",
   });
 
+  const { authenticate } = useContext(AccountContext);
+  const navigate = useNavigate();
+
   const handleLogin = (event) => {
     event.preventDefault();
 
-    const user = new CognitoUser({
-      Username: email,
-      Pool: UserPool,
-    });
-
-    const authDetails = new AuthenticationDetails({
-      Username: email,
-      Password: password,
-    });
-
-    user.authenticateUser(authDetails, {
-      onSuccess: (data) => {
-        console.log("onSuccess: ", data);
-      },
-      onFailure: (err) => {
-        setNotification({
-          show: true,
-          isError: true,
-          title: "Error!",
-          message: err.message,
-        });
-      },
-      newPasswordRequired: (data) => {
-        console.log("newPasswordReqyired: ", data);
-      },
-    });
+    authenticate(email, password, setNotification)
+      .then((data) => {
+        console.log("Logged in! ", data);
+        navigate("/home")
+      })
+      .catch((err) => {
+        console.error("Failed to login ", err);
+      });
   };
 
   return (

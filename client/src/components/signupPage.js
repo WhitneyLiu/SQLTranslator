@@ -1,11 +1,11 @@
-import Logo from "./logo";
 import "../styles/signupPage.scss";
-import { useState } from "react";
-import UserPool from "../helper/UserPool";
-import PasswordCheck from "./PasswordCheck";
-import Warning from "./Warning";
-import Notification from "./Notification";
 import { isValid } from "../helper/password";
+import { useState } from "react";
+import Logo from "./logo";
+import Notification from "./Notification";
+import PasswordCheck from "./PasswordCheck";
+import UserPool from "../helper/UserPool";
+import Warning from "./Warning";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");

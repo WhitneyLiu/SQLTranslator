@@ -1,25 +1,17 @@
-import Logo from "./logo";
-import {
-  ArrowPathIcon,
-  UserCircleIcon,
-  LanguageIcon,
-} from "@heroicons/react/24/outline";
-import { useLocation } from "react-router-dom";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/20/solid";
-
 import "../styles/sideNav.scss";
+import { AccountContext } from "../helper/Account";
+import { ArrowPathIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/20/solid";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Logo from "./logo";
 
 const navigation = [
   {
     name: "SQL - Generate",
-    href: "/sql-generate",
+    href: "/home/sql-generate",
     icon: ArrowPathIcon,
   },
-  // {
-  //   name: "SQL - Explain",
-  //   href: "/sql-explain",
-  //   icon: LanguageIcon,
-  // },
   {
     name: "Account",
     href: "/account",
@@ -28,7 +20,13 @@ const navigation = [
 ];
 
 export default function SideNav(props) {
-  const location = useLocation();
+  const navigate = useNavigate();
+  const { logout } = useContext(AccountContext);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <>
@@ -63,7 +61,7 @@ export default function SideNav(props) {
               </li>
 
               <li className="footer">
-                <a href="#">
+                <a onClick={handleLogout}>
                   <ArrowRightOnRectangleIcon />
                   <span aria-hidden="true">Log out</span>
                 </a>
