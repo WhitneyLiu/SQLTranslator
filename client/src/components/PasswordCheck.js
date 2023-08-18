@@ -10,6 +10,11 @@ export default function PasswordCheck(props) {
   const password = props.password;
   return (
     <>
+      {password.length >= 8 ? (
+        <></>
+      ) : (
+        <Warning message="8-character minimum" />
+      )}
       {containsNumber(password) ? (
         <></>
       ) : (

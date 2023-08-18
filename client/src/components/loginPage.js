@@ -23,8 +23,7 @@ export default function LoginPage() {
 
     authenticate(email, password, setNotification)
       .then((data) => {
-        console.log("Logged in! ", data);
-        navigate("/home")
+        navigate("/home");
       })
       .catch((err) => {
         console.error("Failed to login ", err);
@@ -34,14 +33,10 @@ export default function LoginPage() {
   return (
     <div className="login-page">
       <Logo />
-      {notification.show ? (
-        <Notification
-          notification={notification}
-          setNotification={setNotification}
-        />
-      ) : (
-        <></>
-      )}
+      <Notification
+        notification={notification}
+        setNotification={setNotification}
+      />
       <section>
         <div className="form-style">
           <div className="login-title">

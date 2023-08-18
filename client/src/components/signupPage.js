@@ -45,14 +45,10 @@ export default function SignupPage() {
   return (
     <div className="signup-page">
       <Logo />
-      {notification.show ? (
-        <Notification
-          notification={notification}
-          setNotification={setNotification}
-        />
-      ) : (
-        <></>
-      )}
+      <Notification
+        notification={notification}
+        setNotification={setNotification}
+      />
       <section>
         <div className="form-style">
           <div className="login-title">

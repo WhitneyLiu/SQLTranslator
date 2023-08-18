@@ -1,19 +1,41 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import Pool from "../helper/UserPool";
 
 const AccountContext = createContext();
 
 const Account = (props) => {
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    getSession();
+  },[])
   const getSession = async () => {
     return await new Promise((resolve, reject) => {
       const user = Pool.getCurrentUser();
       if (user) {
-        user.getSession((err, session) => {
+        user.getSession(async (err, session) => {
           if (err) {
-            reject();
+            reject(err);
           } else {
-            resolve(session);
+            const attributes = await new Promise((resolve, reject) => {
+              user.getUserAttributes((err, attributes) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  const results = {};
+                  for (let attribute of attributes) {
+                    const { Name, Value } = attribute;
+                    results[Name] = Value;
+                    if (Name === 'email') {
+                      setEmail(Value);
+                    }
+                  }
+                  resolve(results);
+                }
+              });
+            });
+            resolve({ user, ...session, ...attributes});
           }
         });
       } else {
@@ -36,7 +58,6 @@ const Account = (props) => {
 
       user.authenticateUser(authDetails, {
         onSuccess: (data) => {
-          console.log("onSuccess: ", data);
           resolve(data);
         },
         onFailure: (err) => {
@@ -49,7 +70,6 @@ const Account = (props) => {
           reject(err);
         },
         newPasswordRequired: (data) => {
-          console.log("newPasswordReqyired: ", data);
           resolve(data);
         },
       });
@@ -64,7 +84,7 @@ const Account = (props) => {
   };
 
   return (
-    <AccountContext.Provider value={{ authenticate, getSession, logout }}>
+    <AccountContext.Provider value={{ authenticate, getSession, logout, email }}>
       {props.children}
     </AccountContext.Provider>
   );

@@ -8,7 +8,7 @@ export default function PasswordSetup(props) {
     <>
       <div>
         <div className="password-label-container">
-          <label>Password</label>
+          <label>{props.isNew? "New ": ""}Password</label>
         </div>
         <div className="password-input">
           <input
@@ -26,7 +26,7 @@ export default function PasswordSetup(props) {
 
       <div>
         <div className="password-label-container">
-          <label>Confirm password</label>
+          <label>Confirm Password</label>
         </div>
         <div className="password-input">
           <input

@@ -4,6 +4,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Notification(props) {
+  const {show, isError, title, message} = props.notification;
   return (
     <>
       <div
@@ -12,7 +13,7 @@ export default function Notification(props) {
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           <Transition
-            show={props.notification.show}
+            show={show}
             as={Fragment}
             enter="transform ease-out duration-300 transition"
             enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -25,7 +26,7 @@ export default function Notification(props) {
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    {props.notification.isError ? (
+                    {isError ? (
                       <XCircleIcon
                         className="h-6 w-6 text-red-400"
                         aria-hidden="true"
@@ -39,10 +40,10 @@ export default function Notification(props) {
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
                     <p className="text-sm font-medium text-gray-900">
-                      {props.notification.title}
+                      {title}
                     </p>
                     <p className="mt-1 text-sm text-gray-500">
-                      {props.notification.message}
+                      {message}
                     </p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
