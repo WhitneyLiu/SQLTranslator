@@ -3,9 +3,8 @@ import { isValid } from "../helper/password";
 import { useState } from "react";
 import Logo from "./logo";
 import Notification from "./Notification";
-import PasswordCheck from "./PasswordCheck";
+import PasswordSetup from "./passwordSetup";
 import UserPool from "../helper/UserPool";
-import Warning from "./Warning";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -78,49 +77,12 @@ export default function SignupPage() {
                 </div>
               </div>
 
-              <div>
-                <div className="password-label-container">
-                  <label htmlFor="password">Password</label>
-                </div>
-                <div className="password-input">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    required
-                  />
-                </div>
-                {password === "" ? (
-                  <></>
-                ) : (
-                  <PasswordCheck password={password} />
-                )}
-              </div>
-
-              <div>
-                <div className="password-label-container">
-                  <label htmlFor="password">Confirm password</label>
-                </div>
-                <div className="password-input">
-                  <input
-                    id="password-confirm"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    value={passwordConfirm}
-                    onChange={(event) => setPasswordConfirm(event.target.value)}
-                    required
-                  />
-                </div>
-                {passwordMatch ? (
-                  <></>
-                ) : (
-                  <Warning message="Passwords don't match" />
-                )}
-              </div>
+              <PasswordSetup
+                password={password}
+                passwordConfirm={passwordConfirm}
+                setPassword={setPassword}
+                setPasswordConfirm={setPasswordConfirm}
+              />
 
               <div>
                 <button

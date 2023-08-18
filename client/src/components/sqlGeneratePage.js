@@ -37,7 +37,7 @@ export default function SqlGeneratePage() {
                 )}
               </li>
               <li className="li-text">
-                <label htmlFor="about">Write here what you want:</label>
+                <label>Write here what you want:</label>
                 <div className="mt-2">
                   <Textarea />
                 </div>
@@ -51,7 +51,7 @@ export default function SqlGeneratePage() {
               </li>
 
               <li className="li-text">
-                <label htmlFor="about">Your AI-Generated SQL querie:</label>
+                <label>Your AI-Generated SQL querie:</label>
                 <div className="mt-2">
                   <Textarea disabled={true} />
                 </div>
