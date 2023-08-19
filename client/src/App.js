@@ -6,6 +6,7 @@ import AccountPage from "./components/accountPage";
 import Home from "./components/Home";
 import LandingPage from "./components/landingPage";
 import LoginPage from "./components/loginPage";
+import PasswordRecoverPage from "./components/PasswordRecoverPage";
 import SignupPage from "./components/signupPage";
 import SqlGeneratePage from "./components/sqlGeneratePage";
 import awsconfig from "./aws-exports";
@@ -21,6 +22,7 @@ function App() {
             <Route index element={<LandingPage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<SignupPage />} />
+            <Route path="password-recover" element={<PasswordRecoverPage />} />
             <Route path="home" element={<Home />}>
               <Route path="sql-generate" element={<SqlGeneratePage />} />
               <Route path="account" element={<AccountPage />} />

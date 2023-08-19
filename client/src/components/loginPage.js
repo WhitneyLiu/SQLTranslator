@@ -65,7 +65,7 @@ export default function LoginPage() {
                 <div className="password-label-container">
                   <label htmlFor="password">Password</label>
                   <div className="password-recover">
-                    <a href="#">Forgot password?</a>
+                    <a href="/password-recover">Forgot password?</a>
                   </div>
                 </div>
                 <div className="password-input">

@@ -23,7 +23,7 @@ export default function SqlGeneratePage() {
                   onChange={setEnabled}
                   label="Add database schema"
                 />
-                {enabled ? (
+                {enabled && (
                   <div className="mt-4">
                     <label htmlFor="about">
                       Add your database tables here:
@@ -32,8 +32,6 @@ export default function SqlGeneratePage() {
                       <Textarea />
                     </div>
                   </div>
-                ) : (
-                  <></>
                 )}
               </li>
               <li className="li-text">

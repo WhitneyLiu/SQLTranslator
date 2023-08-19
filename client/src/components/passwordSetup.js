@@ -8,7 +8,7 @@ export default function PasswordSetup(props) {
     <>
       <div>
         <div className="password-label-container">
-          <label>{props.isNew? "New ": ""}Password</label>
+          <label>{props.isNew ? "New " : ""}Password</label>
         </div>
         <div className="password-input">
           <input
@@ -21,7 +21,7 @@ export default function PasswordSetup(props) {
             required
           />
         </div>
-        {password === "" ? <></> : <PasswordCheck password={password} />}
+        {password !== "" &&  <PasswordCheck password={password} />}
       </div>
 
       <div>
@@ -39,9 +39,7 @@ export default function PasswordSetup(props) {
             required
           />
         </div>
-        {password === passwordConfirm ? (
-          <></>
-        ) : (
+        {password !== passwordConfirm && (
           <Warning message="Passwords don't match" />
         )}
       </div>
