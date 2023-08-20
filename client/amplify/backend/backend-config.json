@@ -1,6 +1,6 @@
 {
   "auth": {
-    "sqltrans86c60ac9": {
+    "sqltranse8f6ea03": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -15,7 +15,9 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE"
+        ],
         "usernameAttributes": [
           "EMAIL"
         ],

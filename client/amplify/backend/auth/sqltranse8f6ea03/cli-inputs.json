@@ -1,0 +1,70 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "sqltranse8f6ea03_identitypool_e8f6ea03",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "sqltrae8f6ea03",
+    "userPoolName": "sqltranse8f6ea03_userpool_e8f6ea03",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientLambdaRole": "sqltrae8f6ea03_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "e8f6ea03",
+    "resourceName": "sqltranse8f6ea03",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
+    "usernameAttributes": [
+      "email"
+    ],
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "hostedUIDomainName": "sqltrans3564d9a0-3564d9a0",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/home/sql-generate/\",\"https://sql-translator-1xt8.vercel.app/home/sql-generate/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://sql-translator-1xt8.vercel.app/\"]}",
+    "authProviders": []
+  }
+}

@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-sqltrans-dev-162013-authRole",
-      "UnauthRoleArn": "arn:aws:iam::337325352627:role/amplify-sqltrans-dev-162013-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::337325352627:role/amplify-sqltrans-dev-162013-authRole",
+      "AuthRoleName": "amplify-sqltrans-dev-163259-authRole",
+      "UnauthRoleArn": "arn:aws:iam::337325352627:role/amplify-sqltrans-dev-163259-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::337325352627:role/amplify-sqltrans-dev-163259-authRole",
       "Region": "us-west-1",
-      "DeploymentBucketName": "amplify-sqltrans-dev-162013-deployment",
-      "UnauthRoleName": "amplify-sqltrans-dev-162013-unauthRole",
-      "StackName": "amplify-sqltrans-dev-162013",
-      "StackId": "arn:aws:cloudformation:us-west-1:337325352627:stack/amplify-sqltrans-dev-162013/755576c0-3c8b-11ee-8ca5-026e08184903",
-      "AmplifyAppId": "d1h3i8ocuvznh2"
+      "DeploymentBucketName": "amplify-sqltrans-dev-163259-deployment",
+      "UnauthRoleName": "amplify-sqltrans-dev-163259-unauthRole",
+      "StackName": "amplify-sqltrans-dev-163259",
+      "StackId": "arn:aws:cloudformation:us-west-1:337325352627:stack/amplify-sqltrans-dev-163259/bc9b8e70-3ee8-11ee-8ca5-026e08184903",
+      "AmplifyAppId": "d1wl301tpds6p7"
     },
     "categories": {
       "auth": {
-        "sqltrans86c60ac9": {}
+        "sqltranse8f6ea03": {}
       }
     }
   }

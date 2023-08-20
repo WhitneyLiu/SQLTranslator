@@ -1,10 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "sqltrans86c60ac9": {
+    "sqltranse8f6ea03": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"

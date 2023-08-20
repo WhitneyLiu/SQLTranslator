@@ -1,11 +1,13 @@
 import "../styles/accountPage.scss";
 import { isValid } from "../helper/password";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../helper/Account";
+import { Auth } from "aws-amplify";
 import Notification from "./Notification";
 import PasswordSetup from "./passwordSetup";
 
 export default function AccountPage() {
+  const [email, setEmail] = useState("");
   const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -17,9 +19,22 @@ export default function AccountPage() {
     message: "",
   });
 
-  const { getSession, email } = useContext(AccountContext);
+  const { getSession } = useContext(AccountContext);
 
   const passwordMatch = newPassword === passwordConfirm;
+
+  useEffect(() => {
+    getCurrentUserEmail();
+  }, [])
+
+  async function getCurrentUserEmail() {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      setEmail(user.attributes.email);
+    } catch (error) {
+      console.error('Error getting user email:', error);
+    }
+  }
 
   const cleanPasswordSetting = () => {
     setIsChangingPassword(false);

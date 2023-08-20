@@ -1,5 +1,6 @@
 import "../styles/loginPage.scss";
 import { AccountContext } from "../helper/Account";
+import { Auth } from "aws-amplify";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "./logo";
@@ -28,6 +29,17 @@ export default function LoginPage() {
       .catch((err) => {
         console.error("Failed to login ", err);
       });
+  };
+
+  const googleLogin = async () => {
+    try {
+      const result = await Auth.federatedSignIn({
+        provider: "Google",
+      });
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -98,7 +110,11 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <button type="button" className="google-button">
+              <button
+                onClick={googleLogin}
+                type="button"
+                className="google-button"
+              >
                 <svg
                   width="20"
                   height="20"

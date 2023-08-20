@@ -3,15 +3,30 @@
 
 const awsmobile = {
     "aws_project_region": "us-west-1",
-    "aws_cognito_identity_pool_id": "us-west-1:9de8aef9-30e0-4492-8eaf-b05c85d76507",
+    "aws_cognito_identity_pool_id": "us-west-1:e433c992-e563-4805-bc7f-6399cae5bdd6",
     "aws_cognito_region": "us-west-1",
-    "aws_user_pools_id": "us-west-1_Oaqtgiiaz",
-    "aws_user_pools_web_client_id": "7p3bup8g8mns5kgkugepccjatg",
-    "oauth": {},
+    "aws_user_pools_id": "us-west-1_PbsnTApaq",
+    "aws_user_pools_web_client_id": "304anfvvkobj22dlmrfmc3nu0l",
+    "oauth": {
+        "domain": "sqltrans3564d9a0-3564d9a0-dev.auth.us-west-1.amazoncognito.com",
+        "scope": [
+            "phone",
+            "email",
+            "openid",
+            "profile",
+            "aws.cognito.signin.user.admin"
+        ],
+        "redirectSignIn": "http://localhost:3000/home/sql-generate/,https://sql-translator-1xt8.vercel.app/home/sql-generate/",
+        "redirectSignOut": "http://localhost:3000/,https://sql-translator-1xt8.vercel.app/",
+        "responseType": "code"
+    },
+    "federationTarget": "COGNITO_USER_POOLS",
     "aws_cognito_username_attributes": [
         "EMAIL"
     ],
-    "aws_cognito_social_providers": [],
+    "aws_cognito_social_providers": [
+        "GOOGLE"
+    ],
     "aws_cognito_signup_attributes": [
         "EMAIL"
     ],
